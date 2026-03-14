@@ -9,13 +9,11 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/case/:projectIndex" element={<Case />} />
       </Routes>
-    </BrowserRouter>
   )
 }
 
