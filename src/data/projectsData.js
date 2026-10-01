@@ -42,8 +42,9 @@ import foodcharm14 from "../img/assets/foodcharm/14.png";
 import foodcharm15 from "../img/assets/foodcharm/15.png";
 import foodcharm16 from "../img/assets/foodcharm/16.png";
 import foodcharm17 from "../img/assets/foodcharm/17.png";
+import foodcharm18 from "../img/assets/foodcharm/proto.png";
 
-import fly01 from "../img/assets/fly/01.png";
+/*import fly01 from "../img/assets/fly/01.png";
 import fly02 from "../img/assets/fly/02.png";
 import fly03 from "../img/assets/fly/03.png";
 import fly04 from "../img/assets/fly/04.png";
@@ -52,6 +53,10 @@ import fly06 from "../img/assets/fly/06.png";
 import fly07 from "../img/assets/fly/07.png";
 import fly08 from "../img/assets/fly/08.png";
 import fly09 from "../img/assets/fly/09.png";
+*/
+import fly01 from "../img/assets/fly/tout.png";
+
+
 
 import chess1 from "../img/assets/chess/Play/MacBook Air - 15.png";
 import chess2 from "../img/assets/chess/Play/MacBook Air - 27.png";
@@ -62,10 +67,84 @@ import chess6 from "../img/assets/chess/MacBook Air - 19.png";
 import chess7 from "../img/assets/chess/MacBook Air - 24.png";
 import chess8 from "../img/assets/chess/MacBook Air - 33.png";
 
+import museum1 from "../img/assets/museum/interaction.png";
+import museum2 from "../img/assets/museum/obj.png";
+import museum3 from "../img/assets/museum/obj2.png";
+import museum4 from "../img/assets/museum/objet5.png";
+import museum5 from "../img/assets/museum/piece.png";
+import museum6 from "../img/assets/museum/piece2.png";
+import museum7 from "../img/assets/museum/piece3.png";
+import museum8 from "../img/assets/museum/piece4.png";
+import museum9 from "../img/assets/museum/textures.png";
+import museum10 from "../img/assets/museum/1.png";
+
+
+import rain1 from "../img/assets/rain/goutte1.png"; 
+import rain2 from "../img/assets/rain/goutte2.png";
+import rain3 from "../img/assets/rain/goutte3.png";
+import rain4 from "../img/assets/rain/goutte4.png";
+
+
 
 const projectsData = [
   {
     id: 1,
+    title: "Virtual Museum Experience (VR)",
+    description: [
+      "Created an immersive virtual reality experience for exploring a museum about pop culture.",
+      "Users can navigate through different rooms, view artworks up close, access additional information and interact with the exhibitions.",
+      "The Room has been made from scratch by myself on Blender. The actual pop objects are assets."
+    ],
+    image: [ museum6, museum7, museum8, museum9,museum1, museum2, museum3, museum4, museum5,museum10],
+    technologies: ["Unity", "Blender"],
+    year: 2025
+  },
+  {
+    id: 5,
+    title: "Layover Planner App",
+    description: [
+      "Mobile app to organize layovers during international flights.",
+      "Lets users know if they can leave the airport, discover restaurants, activities, and available services.",
+      "Provides personalized suggestions based on layover duration and user preferences."
+    ],
+    image: [
+      fly01
+    ],
+    technologies: ["React Native", "Tailwind", "OpenAI API"],
+    year: 2026
+  },
+  {
+    id: 6,
+    title: "Chess.com Redesign & Pie Menu",
+    description: [
+      "Redesigned the chess.com interface with a pie menu, based on scientific studies showing faster navigation.",
+      "Added a system to watch a live chess game while playing your own, using a split window display.",
+      "The user experience was rethought to offer more fluidity and efficiency for navigation and play."
+    ],
+    image: [chess1, chess2, chess3, chess4, chess5, chess6, chess7, chess8],
+    technologies: ["Figma", "React", "WebSocket"],
+    year: 2025
+  },
+
+  {
+    id: 4,
+    title: "Relais Food Keychain",
+    description: [
+      "Designed a connected keychain to help students easily find nearby food relay points.",
+      "The goal is to fight food waste and make food more accessible for students.",
+      "The mobile interface lets users locate relay points, check availability, and receive real-time notifications."
+    ],
+    image: [
+      foodcharm18,foodcharm11, foodcharm1, foodcharm2, foodcharm3, foodcharm4, foodcharm5, foodcharm6,
+      foodcharm7, foodcharm8, foodcharm9, foodcharm10,  foodcharm12,
+      foodcharm13, foodcharm14, foodcharm15, foodcharm16, foodcharm17
+    ],
+    technologies: ["Figma"],
+    year: 2024
+  },
+  
+  {
+    id: 7,
     title: "Judy EDA",
     description: [
       "Modern e-commerce website for handmade book pouches.",
@@ -104,45 +183,15 @@ const projectsData = [
     year: 2025
   },
   {
-    id: 4,
-    title: "Relais Food Keychain",
+    id: 8,
+    title: "Virtual Zen Room (Welcome Room)",
     description: [
-      "Designed a connected keychain to help students easily find nearby food relay points.",
-      "The goal is to fight food waste and make food more accessible for students.",
-      "The mobile interface lets users locate relay points, check availability, and receive real-time notifications."
+      "Created an immersive virtual reality experience for relaxation and meditation.",
+      "Users can navigate through a tranquil environment, access guided meditations, and interact with calming elements.",
+      "The Room has been made from scratch by myself on Blender. "
     ],
-    image: [
-      foodcharm1, foodcharm2, foodcharm3, foodcharm4, foodcharm5, foodcharm6,
-      foodcharm7, foodcharm8, foodcharm9, foodcharm10, foodcharm11, foodcharm12,
-      foodcharm13, foodcharm14, foodcharm15, foodcharm16, foodcharm17
-    ],
-    technologies: ["Figma"],
-    year: 2024
-  },
-  {
-    id: 5,
-    title: "Layover Planner App",
-    description: [
-      "Mobile app to organize layovers during international flights.",
-      "Lets users know if they can leave the airport, discover restaurants, activities, and available services.",
-      "Provides personalized suggestions based on layover duration and user preferences."
-    ],
-    image: [
-      fly01, fly02, fly03, fly04, fly05, fly06, fly07, fly08, fly09
-    ],
-    technologies: ["React Native", "Tailwind", "OpenAI API"],
-    year: 2026
-  },
-  {
-    id: 6,
-    title: "Chess.com Redesign & Pie Menu",
-    description: [
-      "Redesigned the chess.com interface with a pie menu, based on scientific studies showing faster navigation.",
-      "Added a system to watch a live chess game while playing your own, using a split window display.",
-      "The user experience was rethought to offer more fluidity and efficiency for navigation and play."
-    ],
-    image: [chess1, chess2, chess3, chess4, chess5, chess6, chess7, chess8],
-    technologies: ["Figma", "React", "WebSocket"],
+    image: [rain1, rain2, rain3, rain4],
+    technologies: ["Unity", "Blender"],
     year: 2025
   }
 ];
