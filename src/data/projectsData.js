@@ -4,6 +4,15 @@ import pochette3 from "../img/assets/pochettes/3.png";
 import pochette4 from "../img/assets/pochettes/4.png";
 import pochette5 from "../img/assets/pochettes/5.png";
 
+import fashion1 from "../img/assets/fashion/1.png";
+import fashion2 from "../img/assets/fashion/2.png";
+import fashion3 from "../img/assets/fashion/3.png";
+import fashion4 from "../img/assets/fashion/4.png";
+import fashion5 from "../img/assets/fashion/5.png";
+import fashion6 from "../img/assets/fashion/6.png";
+import fashion7 from "../img/assets/fashion/7.png"; //moodboard
+import fashion8 from "../img/assets/fashion/8.png";
+
 import zoom1 from "../img/assets/zoom/1.png";
 import zoom2 from "../img/assets/zoom/2.png";
 import zoom3 from "../img/assets/zoom/3.png";
@@ -79,14 +88,41 @@ import museum9 from "../img/assets/museum/textures.png";
 import museum10 from "../img/assets/museum/1.png";
 
 
-import rain1 from "../img/assets/rain/goutte1.png"; 
+import rain1 from "../img/assets/rain/goutte1.png";
 import rain2 from "../img/assets/rain/goutte2.png";
 import rain3 from "../img/assets/rain/goutte3.png";
 import rain4 from "../img/assets/rain/goutte4.png";
 
+import Map from "../img/assets/Map_Ai/gris.svg";
+
 
 
 const projectsData = [
+
+  {
+    id: 9,
+    title: "Fashion Brand Identity [INCOMING]",
+    description: [
+      "Developed a complete brand identity for a new fashion line.",
+      "This included the logo, color palette, typography, and overall visual style.",
+      "The goal was to create a cohesive and memorable brand that resonates with the target audience."
+    ],
+    image: [fashion7,fashion1, fashion2, fashion3, fashion4, fashion5, fashion6, fashion8],
+    technologies: ["Figma", "Adobe Illustrator"],
+    year: 2026
+  },
+  {
+    id: 10,
+    title: "AI-Driven Interactive Map Experience",
+    description: [
+      "Created an interactive map experience powered by AI.",
+      "The map provides personalized recommendations and real-time updates based on user behavior and preferences.",
+      "Users can explore different locations, view relevant information, and interact with the map in a dynamic way."
+    ],
+    image: [Map],
+    technologies: ["Figma"],
+    year: 2026
+  },
   {
     id: 1,
     title: "Virtual Museum Experience (VR)",
@@ -142,7 +178,7 @@ const projectsData = [
     technologies: ["Figma"],
     year: 2024
   },
-  
+
   {
     id: 7,
     title: "Judy EDA",

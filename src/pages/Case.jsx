@@ -1,44 +1,22 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import projectsData from "../data/projectsData";
 import { useParams, useNavigate } from "react-router-dom";
-
-const RECT_WIDTH = 280;
-const RECT_HEIGHT = 100;
-const PADDING = 32;
-
-const getRandomPosition = (container) => {
-  const width = container?.offsetWidth || window.innerWidth;
-  const height = container?.offsetHeight || window.innerHeight;
-  return {
-    x: Math.random() * (width - RECT_WIDTH - PADDING * 2) + PADDING,
-    y: Math.random() * (height - RECT_HEIGHT - PADDING * 2) + PADDING,
-  };
-};
 
 export default function Case() {
   const { projectIndex } = useParams();
   const navigate = useNavigate();
   const selected = parseInt(projectIndex, 10) || 0;
-  const [descPositions, setDescPositions] = useState([]);
   const [mainImage, setMainImage] = useState(projectsData[selected].image[0]);
-  const containerRef = useRef(null);
-
-  useEffect(() => {
-    setMainImage(projectsData[selected].image[0]);
-    setTimeout(() => {
-      setDescPositions(
-        projectsData[selected].description.map(() =>
-          getRandomPosition(containerRef.current)
-        )
-      );
-    }, 0);
-  }, [selected]);
 
   const project = projectsData[selected];
 
+  useEffect(() => {
+    setMainImage(project.image[0]);
+  }, [project]);
+
   return (
-    <div ref={containerRef} className="fixed inset-0 w-full h-full bg-white overflow-hidden flex">
+    <div className="fixed inset-0 w-full h-full bg-white overflow-hidden flex">
       <div className="fixed right-0 top-0 h-screen w-[20%] flex flex-col items-end pt-15 pr-2 z-30 bg-white/80 backdrop-blur">
         <div className="text-5xl font-bold mb-12 text-right">{project.title}</div>
         <div className="w-full h-px bg-black mb-8" />
@@ -77,70 +55,30 @@ export default function Case() {
         </button>
       </div>
 
-    
-      <AnimatePresence>
-        {project.description.map((desc, idx) => (
-          <motion.div
-            key={desc}
-            drag
-            dragMomentum={false}
-            dragElastic={0}
-            dragConstraints={containerRef}
-            style={{
-              left: descPositions[idx]?.x || 100,
-              top: descPositions[idx]?.y || 100,
-              position: "absolute",
-              borderRadius: "0.2rem",
-              boxShadow: "0 4px 32px 0 rgba(0,0,0,0.10)",
-              width: RECT_WIDTH,
-              minHeight: RECT_HEIGHT,
-              pointerEvents: "auto",
-            }}
-            className="z-40 px-6 py-4 border border-white/40 bg-white/30 backdrop-blur-md shadow-lg cursor-grab active:cursor-grabbing select-none"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{
-              left: descPositions[idx]?.x || 100,
-              top: descPositions[idx]?.y || 100,
-              opacity: 1,
-              scale: 1,
-            }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{
-              type: "spring",
-              stiffness: 500,
-              damping: 50,
-              mass: 1.2,
-            }}
-            onDragEnd={(_, info) => {
-              const container = containerRef.current;
-              if (!container) return;
-              const width = container.offsetWidth;
-              const height = container.offsetHeight;
-              let x = info.point.x - container.getBoundingClientRect().left;
-              let y = info.point.y - container.getBoundingClientRect().top;
-              x = Math.max(PADDING, Math.min(x, width - RECT_WIDTH - PADDING));
-              y = Math.max(PADDING, Math.min(y, height - RECT_HEIGHT - PADDING));
-              setDescPositions((positions) =>
-                positions.map((pos, i) =>
-                  i === idx ? { x, y } : pos
-                )
-              );
-            }}
-          >
-            <span className="text-sm text-black">{desc}</span>
-          </motion.div>
-        ))}
-      </AnimatePresence>
-
       {/* Central content */}
       <div className="absolute inset-0 w-full h-full overflow-y-auto flex flex-col items-center pt-44 pb-48 z-10 pointer-events-none">
         <div className="w-[60%] flex flex-col ml-[-10%] pointer-events-auto">
-          <div className="flex flex-row flex-wrap gap-4 mb-8">
-            <p className="bg-black text-white p-2 text-sm">{project.title}</p>
-            <p className="bg-black text-white p-2 text-sm">{project.year}</p>
-            <p className="bg-black text-white p-2 text-sm">{project.technologies.join(", ")}</p>
+          <div className="flex flex-row items-start justify-between gap-8 mb-8">
+            <div className="flex flex-row flex-wrap gap-4">
+              <p className="bg-black text-white p-2 text-sm">{project.title}</p>
+              <p className="bg-black text-white p-2 text-sm">{project.year}</p>
+              <p className="bg-black text-white p-2 text-sm">{project.technologies.join(", ")}</p>
+            </div>
+            <div className="group fixed right-[25%] top-44 z-50 shrink-0 max-md:right-6">
+              <button
+                type="button"
+                className="border border-black bg-white px-4 py-2 text-sm text-black transition hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+              >
+                Thought process
+              </button>
+              <div className="pointer-events-none invisible absolute right-0 top-full z-50 mt-4 flex aspect-square w-80 items-center border border-white/60 bg-white/35 p-6 opacity-0 shadow-xl backdrop-blur-xl transition duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="max-h-full space-y-4 overflow-y-auto text-left text-sm leading-relaxed text-black">
+                  {project.description.map((description) => (
+                    <p key={description}>{description}</p>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
           <div className="w-full flex items-center justify-center">
             <AnimatePresence mode="wait">

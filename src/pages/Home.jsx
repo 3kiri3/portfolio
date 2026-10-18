@@ -17,6 +17,14 @@ export default function Home() {
     { type: "about" },
   ];
 
+  const handleWheel = (event) => {
+    const container = scrollContainerRef.current;
+    if (!container || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+
+    event.preventDefault();
+    container.scrollLeft += event.deltaY;
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollLeft = scrollContainerRef.current?.scrollLeft || 0;
@@ -67,7 +75,8 @@ export default function Home() {
 
         <div ref={scrollContainerRef} 
               data-scroll-container
-              className="w-full h-full overflow-x-auto no-scrollbar flex items-center z-2">
+            onWheel={handleWheel}
+            className="w-full h-full overflow-x-auto overscroll-x-contain no-scrollbar flex items-center z-2">
           
           <motion.div
             className={`flex flex-row items-center pl-[15vw] ${scaleDown ? "pl-[15vw]" : "-pl-[10vw]"} gap-16`}
