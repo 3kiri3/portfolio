@@ -7,15 +7,19 @@ import About from "./About";
 
 export default function Home() {
   const [showText, setShowText] = useState(false);
+  const [showReturnPrompt, setShowReturnPrompt] = useState(false);
   const [scaleDown, setScaleDown] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollContainerRef = useRef(null);
 
   const slides = [
     { type: "presentation" },
-    ...projectsData.map((project) => ({ type: "project", project })),
+    ...projectsData.slice(0, 4).map((project) => ({ type: "project", project })),
     { type: "about" },
+    ...projectsData.slice(4).map((project) => ({ type: "project", project })),
   ];
+  const aboutIndex = 5;
+  const displayIndex = activeIndex >= aboutIndex ? activeIndex - 1 : activeIndex;
 
   const handleWheel = (event) => {
     const container = scrollContainerRef.current;
@@ -25,6 +29,18 @@ export default function Home() {
     container.scrollLeft += event.deltaY;
   };
 
+  const goToProjectsStart = () => {
+    const container = scrollContainerRef.current;
+    const firstProject = container?.querySelector('[data-slide-index="1"]');
+
+    if (!container || !firstProject) return;
+
+    container.scrollTo({
+      left: Math.max(firstProject.offsetLeft - (container.clientWidth - firstProject.offsetWidth) / 2, 0),
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {
     const ref = scrollContainerRef.current;
     if (!ref) return undefined;
@@ -32,8 +48,10 @@ export default function Home() {
     const handleScroll = () => {
       const scrollWidth = ref.scrollWidth || 1;
       const clientWidth = ref.clientWidth || 1;
-      const progress = ref.scrollLeft / Math.max(scrollWidth - clientWidth, 1);
+      const maxScrollLeft = Math.max(scrollWidth - clientWidth, 1);
+      const progress = ref.scrollLeft / maxScrollLeft;
       setShowText(progress > 0.1);
+      setShowReturnPrompt(ref.scrollLeft >= maxScrollLeft - 8);
 
       const containerCenter = ref.getBoundingClientRect().left + clientWidth / 2;
       const slideElements = ref.querySelectorAll("[data-slide-index]");
@@ -75,10 +93,10 @@ export default function Home() {
       </div>
 
       <div className="fixed top-0 right-0 -translate-x-1/2 flex flex-row gap-2 z-3 mt-32 -px-4">
-        {slides.map((slide, idx) => (
+        {slides.filter((slide) => slide.type !== "about").map((slide, idx) => (
           <div
-            key={idx}
-            className={`bg-black rounded transition-all duration-300 ${activeIndex === idx ? "w-8 h-2" : "w-1 h-2 opacity-60"}`}
+            key={slide.type === "project" ? slide.project.id : slide.type}
+            className={`bg-black rounded transition-all duration-300 ${displayIndex === idx ? "w-8 h-2" : "w-1 h-2 opacity-60"}`}
           />
         ))}
       </div>
@@ -93,26 +111,39 @@ export default function Home() {
             animate={{ scale: scaleDown ? 0.8 : 1 }}
             transition={{ duration: 0.4 }}
           >
-            <div data-slide-index="0" className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
-              <div className="w-[100vw] h-[100vh] scale-70 flex-shrink-0">
-                <Presentation />
-              </div>
-            </div>
-            {projectsData.map((project, index) => (
-              <div data-slide-index={index + 1} key={project.id} className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
+            {slides.map((slide, index) => (
+              <div data-slide-index={index} key={slide.type === "project" ? slide.project.id : slide.type} className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
                 <div className="w-[100vw] h-[100vh] scale-70 flex-shrink-0">
-                  <Projects project={project} index={index} />
+                  {slide.type === "presentation" && <Presentation />}
+                  {slide.type === "project" && (
+                    <Projects project={slide.project} index={projectsData.indexOf(slide.project)} />
+                  )}
+                  {slide.type === "about" && <About />}
+                  </div>
                 </div>
-              </div>
-            ))}
-            <div data-slide-index={slides.length - 1} className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
-              <div className="w-[100vw] h-[100vh] scale-70 flex-shrink-0">
-                <About />
-              </div>
-            </div>
+              ))}
           </motion.div>
-        </div>
-        <AnimatePresence>
+          </div>
+          <AnimatePresence>
+            {showReturnPrompt && (
+              <motion.div
+                className="pointer-events-none fixed inset-0 z-20 flex items-center justify-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <button
+                  type="button"
+                  onClick={goToProjectsStart}
+                  className="pointer-events-auto text-center text-lg font-light underline underline-offset-4 transition hover:opacity-50"
+                >
+                  Back to Project 1
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <AnimatePresence>
           {showText && (
             <motion.div
               className="fixed bottom-0 right-0 px-4 -my-16 text-lg z-1"
@@ -121,7 +152,7 @@ export default function Home() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-[25rem] -my-20">{String(activeIndex - 1).padStart(2, "0")}</p>
+              <p className="text-[25rem] -my-20">{String(displayIndex).padStart(2, "0")}</p>
             </motion.div>
           )}
         </AnimatePresence>
