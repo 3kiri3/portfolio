@@ -26,37 +26,47 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const ref = scrollContainerRef.current;
+    if (!ref) return undefined;
+
     const handleScroll = () => {
-      const scrollLeft = scrollContainerRef.current?.scrollLeft || 0;
-      const scrollWidth = scrollContainerRef.current?.scrollWidth || 1;
-      const clientWidth = scrollContainerRef.current?.clientWidth || 1;
-      const progress = scrollLeft / (scrollWidth - clientWidth);
-
+      const scrollWidth = ref.scrollWidth || 1;
+      const clientWidth = ref.clientWidth || 1;
+      const progress = ref.scrollLeft / Math.max(scrollWidth - clientWidth, 1);
       setShowText(progress > 0.1);
-      setScaleDown(progress > 0.1); 
 
-      const scale = scaleDown ? 0.8 : 1;
-      const slideWidth = ref ? (ref.scrollWidth / slides.length) * scale : 1;
-      const index = Math.floor((scrollLeft + slideWidth) * 0.8 / slideWidth);
-      setActiveIndex(index);
+      const containerCenter = ref.getBoundingClientRect().left + clientWidth / 2;
+      const slideElements = ref.querySelectorAll("[data-slide-index]");
+      let closestIndex = 0;
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      slideElements.forEach((slide) => {
+        const { left, width } = slide.getBoundingClientRect();
+        const distance = Math.abs(left + width / 2 - containerCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = Number(slide.dataset.slideIndex);
+        }
+      });
+
+      setActiveIndex(closestIndex);
+      setScaleDown(progress > 0.1);
     };
 
     const saved = localStorage.getItem("scrollPosition");
-    if (saved && scrollContainerRef.current) {
-      scrollContainerRef.current.scrollLeft = parseInt(saved, 10);
+    if (saved) {
+      ref.scrollLeft = parseInt(saved, 10);
       localStorage.removeItem("scrollPosition");
     }
 
-    const ref = scrollContainerRef.current;
-    if (ref) ref.addEventListener("scroll", handleScroll);
+    ref.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
-      if (ref) ref.removeEventListener("scroll", handleScroll);
+      ref.removeEventListener("scroll", handleScroll);
     };
-    
-  }, [scaleDown, slides.length]);
-
-  const totalSlides = slides.length;
+  }, [slides.length]);
 
   return (
     <div className="fixed w-screen h-screen bg-gray-100 flex items-center flex-col justify-center p-0">
@@ -83,19 +93,19 @@ export default function Home() {
             animate={{ scale: scaleDown ? 0.8 : 1 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
+            <div data-slide-index="0" className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
               <div className="w-[100vw] h-[100vh] scale-70 flex-shrink-0">
                 <Presentation />
               </div>
             </div>
             {projectsData.map((project, index) => (
-              <div key={project.id} className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
+              <div data-slide-index={index + 1} key={project.id} className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
                 <div className="w-[100vw] h-[100vh] scale-70 flex-shrink-0">
                   <Projects project={project} index={index} />
                 </div>
               </div>
             ))}
-            <div className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
+            <div data-slide-index={slides.length - 1} className="w-[70vw] h-[70vh] flex-shrink-0 flex items-center justify-center">
               <div className="w-[100vw] h-[100vh] scale-70 flex-shrink-0">
                 <About />
               </div>
@@ -111,7 +121,7 @@ export default function Home() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-[25rem] -my-20">{String(activeIndex).padStart(2, "0")}</p>
+              <p className="text-[25rem] -my-20">{String(activeIndex - 1).padStart(2, "0")}</p>
             </motion.div>
           )}
         </AnimatePresence>
