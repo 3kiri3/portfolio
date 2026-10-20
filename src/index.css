@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&display=swap');
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -22,6 +23,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.font-inria {
+  font-family: 'Inria Serif', Georgia, serif;
 }
 
 
@@ -85,6 +90,26 @@ button:focus-visible {
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.grid-background {
+  background-image:
+    linear-gradient(
+      to right,
+      transparent calc(16.6667% - 1px),
+      rgba(0, 0, 0, 0.15) calc(16.6667% - 1px) 16.6667%,
+      transparent 16.6667% calc(33.3333% - 1px),
+      rgba(0, 0, 0, 0.15) calc(33.3333% - 1px) 33.3333%,
+      transparent 33.3333% calc(50% - 1px),
+      rgba(0, 0, 0, 0.15) calc(50% - 1px) 50%,
+      transparent 50% calc(66.6667% - 1px),
+      rgba(0, 0, 0, 0.15) calc(66.6667% - 1px) 66.6667%,
+      transparent 66.6667% calc(83.3333% - 1px),
+      rgba(0, 0, 0, 0.15) calc(83.3333% - 1px) 83.3333%,
+      transparent 83.3333%
+    );
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .sticky-section {

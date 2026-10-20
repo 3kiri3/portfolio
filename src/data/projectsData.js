@@ -93,39 +93,185 @@ import rain2 from "../img/assets/rain/goutte2.png";
 import rain3 from "../img/assets/rain/goutte3.png";
 import rain4 from "../img/assets/rain/goutte4.png";
 
-import Map from "../img/assets/Map_Ai/gris.svg";
+import Map2 from "../img/assets/Map_Ai/1.png";
+import Map3 from "../img/assets/Map_Ai/2.png";
+import Map4 from "../img/assets/Map_Ai/3.png";
+import Map5 from "../img/assets/Map_Ai/4.png";
+import Map6 from "../img/assets/Map_Ai/5.png";
+import Map7 from "../img/assets/Map_Ai/6.png";
+import Map8 from "../img/assets/Map_Ai/7.png";
+import MapFond from "../img/assets/Map_Ai/fond_gris.png";
 
 
 
 const projectsData = [
 
-  {
-    id: 9,
-    title: "Fashion Brand Identity [INCOMING]",
-    description: [
-      "Developed a complete brand identity for a new fashion line.",
-      "This included the logo, color palette, typography, and overall visual style.",
-      "The goal was to create a cohesive and memorable brand that resonates with the target audience."
-    ],
-    image: [fashion7,fashion1, fashion2, fashion3, fashion4, fashion5, fashion6, fashion8],
-    technologies: ["Figma", "Adobe Illustrator"],
-    year: 2026
+  
+{
+  id: 1,
+  title: "High-Fashion E-Commerce Experience",
+  template: "editorial2",
+  editorial: {
+    number: "02 /",
+    caption: "Art direction — moodboard and initial wireframes",
+    challengeLabel: "The vision",
+    challenge: "Where high-fashion meets digital experience.",
+    questionLabel: "The design challenge",
+    question:
+      "How might an e-commerce experience translate the visual codes of luxury fashion into an elegant, intuitive and immersive digital journey?",
+    sections: [
+      {
+        image: fashion7,
+        textSide: "right",
+        text: "An aesthetic shaped by fashion.",
+        paragraph:
+          "Inspired by the visual worlds of Dior, Miu Miu and Jacquemus, the moodboard explores the balance between editorial storytelling, contemporary luxury and distinctive brand expression. It establishes the visual direction guiding the project's design decisions."
+      },
+      {
+        image: fashion1,
+        textSide: "left",
+        text: "From inspiration to structure.",
+        paragraph:
+          "The initial wireframes translate the creative direction into a digital shopping experience. They explore page layouts, content hierarchy and the organisation of visual elements, laying the foundation for a cohesive e-commerce journey."
+      },
+      {
+        image: fashion2,
+        textSide: "right",
+        text: "Let the collection speak.",
+        paragraph:
+          "The layout explorations focus on how fashion imagery and product content can coexist without competing for attention. The goal is to create space for the collections to express their identity while keeping navigation clear and intuitive."
+      },
+      {
+        image: fashion3,
+        textSide: "left",
+        text: "Designed around discovery.",
+        paragraph:
+          "The wireframes explore how users might browse collections, navigate between categories and discover pieces. Each structural decision aims to balance an editorial feel with the usability expected from an online store."
+      },
+      {
+        image: fashion4,
+        textSide: "right",
+        text: "A seamless shopping journey.",
+        paragraph:
+          "The ongoing design process considers how users move from visual inspiration to product exploration. Page structure and information hierarchy are being refined to support a fluid experience without losing the character of a high-fashion brand."
+      },
+      {
+        image: fashion5,
+        textSide: "left",
+        text: "Consistency across the experience.",
+        paragraph:
+          "Across the wireframes, recurring layout principles help establish a coherent visual language. The aim is to connect individual pages into one recognisable experience while leaving room for expressive imagery and strong editorial compositions."
+      },
+      {
+        image: fashion6,
+        textSide: "right",
+        text: "Refining the details.",
+        paragraph:
+          "These early explorations provide a framework for testing and refining the interface before moving further into visual design. The project remains in progress, with the structure serving as a foundation for the next design iterations."
+      },
+      {
+        image: fashion8,
+        textSide: "left",
+        text: "An evolving vision of digital luxury.",
+        paragraph:
+          "This project brings together my interest in fashion, visual culture and user-centred design. The next steps will build on the wireframes to develop a more defined visual identity and a polished e-commerce experience."
+      }
+    ]
   },
-  {
-    id: 10,
-    title: "AI-Driven Interactive Map Experience",
-    description: [
-      "Created an interactive map experience powered by AI.",
-      "The map provides personalized recommendations and real-time updates based on user behavior and preferences.",
-      "Users can explore different locations, view relevant information, and interact with the map in a dynamic way."
-    ],
-    image: [Map],
-    technologies: ["Figma"],
-    year: 2026
+  description: [
+    "Developing a high-fashion e-commerce website inspired by the visual identities of Dior, Miu Miu and Jacquemus.",
+    "Created a moodboard and initial wireframes to explore art direction, page structure, visual hierarchy and the online shopping journey.",
+    "Ongoing project combining fashion-inspired visual research with UX/UI design."
+  ],
+  image: [
+    fashion7,
+    fashion1,
+    fashion2,
+    fashion3,
+    fashion4,
+    fashion5,
+    fashion6,
+    fashion8
+  ],
+  technologies: ["Figma", "Adobe Illustrator"],
+  year: 2026
+}
+,
+  
+{
+  id: 2,
+  title: "AI-Driven Interactive Map Experience",
+  template: "editorial2",
+  editorial: {
+    number: "01 /",
+    caption: "The concept — onboarding and preference selection",
+    challengeLabel: "The challenge",
+    challenge: "Less searching. More meaningful discoveries.",
+    questionLabel: "How might we",
+    question:
+      "How might AI help travellers discover relevant places and plan their journeys while keeping them in control of their decisions?",
+    
+  
+  sections: [
+    {
+      image: Map2,
+      textSide: "right",
+      text: "Every journey starts with what matters to you.",
+      paragraph:
+        "Before exploring the map, users define their preferences and travel constraints. These initial inputs help filter relevant places and lay the groundwork for an itinerary tailored to their needs."
+    },
+    {
+      image: Map3,
+      textSide: "left",
+      text: "Shape your journey before it begins.",
+      paragraph:
+        "Users refine their search by specifying what they are looking for, from personal interests to practical constraints. By gathering these preferences upfront, the experience makes discovering relevant places more intuitive and prepares the next step: building an itinerary."
+    },
+    {
+      image: Map4,
+      textSide: "right",
+      text: "Discover more. Search smarter.",
+      paragraph:
+        "As users explore the map, they can browse recommendations and decide when they need extra guidance. The AI can refine results through simple keywords, such as 'vegetarian', helping users narrow their options without interrupting their exploration or taking control away from them."
+    },
+    {
+      image: Map5,
+      textSide: "left",
+      text: "From places of interest to a journey of your own.",
+      paragraph:
+        "When users find somewhere they like, they can save it to their favourites or add it directly to their itinerary. This creates a seamless transition from discovering new places to organising a journey that reflects their interests and priorities."
+    },
+    {
+      image: Map6,
+      textSide: "right",
+      text: "A map that gets to know you.",
+      paragraph:
+        "Personalisation continues beyond the initial search. The user profile brings preferences together in one place, allowing users to review, edit and add new ones over time. The system can gradually adapt to their evolving needs while keeping them in control of their experience."
+    }
+  ],
+
   },
+  description: [
+    "Explored an AI-powered travel planning experience through a Figma prototype.",
+    "Designed a conversational interaction that lets users refine map results, discover relevant places and build personalised itineraries.",
+    "Explored user-controlled personalisation through editable preferences, saved places and an adaptive profile."
+  ],
+  image: [Map2, Map3, Map4, Map5, Map6],
+  technologies: ["Figma"],
+  year: 2026
+}
+,
   {
-    id: 1,
+    id: 3,
     title: "Virtual Museum Experience (VR)",
+    template: "editorial2",
+    editorial1Images: [0, 1, 2, 5, 6, 7],
+    editorial: {
+      imageGroups: [
+        [0, 1, 2],
+        [5, 6, 7]
+      ]
+    },
     description: [
       "Created an immersive virtual reality experience for exploring a museum about pop culture.",
       "Users can navigate through different rooms, view artworks up close, access additional information and interact with the exhibitions.",
@@ -136,7 +282,7 @@ const projectsData = [
     year: 2025
   },
   {
-    id: 5,
+    id: 4,
     title: "Layover Planner App",
     description: [
       "Mobile app to organize layovers during international flights.",
@@ -150,7 +296,7 @@ const projectsData = [
     year: 2026
   },
   {
-    id: 6,
+    id: 5,
     title: "Chess.com Redesign & Pie Menu",
     description: [
       "Redesigned the chess.com interface with a pie menu, based on scientific studies showing faster navigation.",
@@ -163,7 +309,7 @@ const projectsData = [
   },
 
   {
-    id: 4,
+    id: 6,
     title: "Relais Food Keychain",
     description: [
       "Designed a connected keychain to help students easily find nearby food relay points.",
@@ -192,8 +338,8 @@ const projectsData = [
     year: 2025
   },
   {
-    id: 2,
-    title: "Zoom Pro Max",
+    id: 8,
+    title: "Virtual Zen Room (Welcome Room)",
     description: [
       "Redesign of Zoom with new features for a more flexible and interactive meeting experience.",
       "Users can fully customize their interface: choose which participants are visible and adjust the size of each video window.",
@@ -207,7 +353,7 @@ const projectsData = [
     year: 2026
   },
   {
-    id: 3,
+    id: 9,
     title: "MARC – Virtual Human",
     description: [
       "Designed an interface for a virtual human to assist elderly people with their sports programs and daily routines.",
@@ -219,7 +365,7 @@ const projectsData = [
     year: 2025
   },
   {
-    id: 8,
+    id: 10,
     title: "Virtual Zen Room (Welcome Room)",
     description: [
       "Created an immersive virtual reality experience for relaxation and meditation.",
