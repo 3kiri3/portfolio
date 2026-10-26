@@ -12,6 +12,7 @@ import fashion5 from "../img/assets/fashion/5.png";
 import fashion6 from "../img/assets/fashion/6.png";
 import fashion7 from "../img/assets/fashion/7.png"; //moodboard
 import fashion8 from "../img/assets/fashion/8.png";
+import fashionMain from "../img/assets/fashion/main.png";
 
 import zoom1 from "../img/assets/zoom/1.png";
 import zoom2 from "../img/assets/zoom/2.png";
@@ -52,6 +53,25 @@ import foodcharm15 from "../img/assets/foodcharm/15.png";
 import foodcharm16 from "../img/assets/foodcharm/16.png";
 import foodcharm17 from "../img/assets/foodcharm/17.png";
 import foodcharm18 from "../img/assets/foodcharm/proto.png";
+import foodCharmBrooke from "../img/assets/foodcharm/Brooke.jpeg";
+import foodCharmLuc from "../img/assets/foodcharm/Luc.jpeg";
+import foodCharmRichie from "../img/assets/foodcharm/Richie.jpeg";
+import foodCharmKeychain from "../img/assets/foodcharm/main.png";
+import foodCharmWorkshop from "../img/assets/foodcharm/workshop/paper_tamagochi.jpg";
+import foodCharmWorkshop2 from "../img/assets/foodcharm/workshop/workshop2.png";
+import foodCharmKeychainModel from "../img/assets/foodcharm/image_keychain.png";
+import foodCharmDimensions from "../img/assets/foodcharm/dimensions.png";
+import foodCharmScenario1Step1 from "../img/assets/foodcharm/scenario_1/6 3.png";
+import foodCharmScenario1Step2 from "../img/assets/foodcharm/scenario_1/6 4.png";
+import foodCharmScenario1Step3 from "../img/assets/foodcharm/scenario_1/6 5.png";
+import foodCharmScenario2Step1 from "../img/assets/foodcharm/scenario_2/Capture d’écran 2026-10-23 à 16.46.57 2.png";
+import foodCharmScenario2Step2 from "../img/assets/foodcharm/scenario_2/Capture d’écran 2026-10-23 à 16.46.57 3.png";
+import foodCharmScenario2Step3 from "../img/assets/foodcharm/scenario_2/Capture d’écran 2026-10-23 à 16.46.57 4.png";
+import foodCharmScenario2Step4 from "../img/assets/foodcharm/scenario_2/Capture d’écran 2026-10-23 à 16.46.57 6.png";
+import foodCharmScenario2Step5 from "../img/assets/foodcharm/scenario_2/Capture d’écran 2026-10-23 à 16.47.09 1.png";
+import foodCharmScenario2Step6 from "../img/assets/foodcharm/scenario_2/Capture d’écran 2026-10-23 à 16.47.09 2.png";
+import foodCharmScenario2Step7 from "../img/assets/foodcharm/scenario_2/Capture d’écran 2026-10-23 à 16.47.09 3.png";
+import foodCharmScenario2Step8 from "../img/assets/foodcharm/scenario_2/Capture d’écran 2026-10-23 à 16.47.09 4.png";
 
 /*import fly01 from "../img/assets/fly/01.png";
 import fly02 from "../img/assets/fly/02.png";
@@ -93,6 +113,7 @@ import rain2 from "../img/assets/rain/goutte2.png";
 import rain3 from "../img/assets/rain/goutte3.png";
 import rain4 from "../img/assets/rain/goutte4.png";
 
+import MapMain from "../img/assets/Map_Ai/main.png";
 import Map2 from "../img/assets/Map_Ai/1.png";
 import Map3 from "../img/assets/Map_Ai/2.png";
 import Map4 from "../img/assets/Map_Ai/3.png";
@@ -110,7 +131,7 @@ const projectsData = [
 {
   id: 1,
   title: "High-Fashion E-Commerce Experience",
-  template: "editorial2",
+  template: "fashionCaseStudy",
   editorial: {
     number: "02 /",
     caption: "Art direction — moodboard and initial wireframes",
@@ -184,6 +205,7 @@ const projectsData = [
     "Ongoing project combining fashion-inspired visual research with UX/UI design."
   ],
   image: [
+    fashionMain,
     fashion7,
     fashion1,
     fashion2,
@@ -201,7 +223,7 @@ const projectsData = [
 {
   id: 2,
   title: "AI-Driven Interactive Map Experience",
-  template: "editorial2",
+  template: "mapAICaseStudy",
   editorial: {
     number: "01 /",
     caption: "The concept — onboarding and preference selection",
@@ -256,7 +278,7 @@ const projectsData = [
     "Designed a conversational interaction that lets users refine map results, discover relevant places and build personalised itineraries.",
     "Explored user-controlled personalisation through editable preferences, saved places and an adaptive profile."
   ],
-  image: [Map2, Map3, Map4, Map5, Map6],
+  image: [MapMain, Map2, Map3, Map4, Map5, Map6],
   technologies: ["Figma"],
   year: 2026
 }
@@ -298,6 +320,86 @@ const projectsData = [
   {
     id: 5,
     title: "Chess.com Redesign & Pie Menu",
+    template: "editorialCaseStudy",
+    caseStudy: {
+      category: "Interaction design",
+      subtitle: "Rethinking navigation and live play on chess.com.",
+      duration: "2025",
+      role: "UX and interface design",
+      team: "Individual project",
+      overviewTitle: "A faster way to play and watch.",
+      description:
+        "This redesign explores how chess.com can make frequent actions easier to reach without interrupting the game. The concept combines a radial pie menu with a split view for watching a live match while playing.",
+      objectives: [
+        "Reduce the distance between the player and common actions.",
+        "Make live chess viewing compatible with an ongoing game.",
+        "Create a clearer and more fluid navigation system."
+      ],
+      problem:
+        "Chess.com offers many features, but moving between playing, watching and controlling a game can make the experience feel fragmented.",
+      problemContext:
+        "The redesign focuses on navigation speed and context switching. Actions should remain available while the player keeps their attention on the board.",
+      research: {
+        introduction:
+          "The direction was informed by research into radial menus and the way repeated interactions benefit from proximity and muscle memory.",
+        method: "Interface analysis and interaction design",
+        participants: "Chess.com users and regular online chess players",
+        format: "Individual redesign",
+        goal: "Make navigation feel immediate without adding visual noise."
+      },
+      researchImageIndices: [3, 4],
+      researchCaptions: [
+        "Existing interface elements and navigation references.",
+        "Exploration of a more contextual interaction model."
+      ],
+      insights: [
+        {
+          title: "Proximity matters",
+          description:
+            "Frequently used actions should be available near the point of attention."
+        },
+        {
+          title: "Context should persist",
+          description:
+            "Watching a game should not require leaving the current playing experience."
+        },
+        {
+          title: "Efficiency needs hierarchy",
+          description:
+            "A compact menu works best when its actions are grouped and predictable."
+        }
+      ],
+      prototype: {
+        introduction:
+          "The interface was developed around two connected concepts: a pie menu for fast actions and a split window for simultaneous play and viewing.",
+        decisions: [
+          "Place the pie menu close to the board.",
+          "Use directional placement to support recognition and repetition.",
+          "Keep the live game visible without taking over the main board."
+        ],
+        imageIndices: [0, 1, 2],
+        captions: [
+          "Pie menu interaction during a game.",
+          "Alternative interaction state.",
+          "Live game viewing beside the player's board."
+        ]
+      },
+      solution: {
+        title: "A more fluid chess workspace.",
+        description:
+          "The final concept brings navigation, play and observation into one workspace. The pie menu reduces unnecessary cursor movement while the split view lets players follow another game without abandoning their own.",
+        imageIndices: [5, 6, 7]
+      },
+      reflection: {
+        description:
+          "This project showed how a small interaction pattern can change the rhythm of a complex interface. The next iteration would test the menu with players over longer sessions and measure speed, discoverability and error rate.",
+        learnings: [
+          "Interaction patterns should support the user's current focus.",
+          "Efficiency is valuable only when the interface remains discoverable.",
+          "Parallel activities need clear visual boundaries."
+        ]
+      }
+    },
     description: [
       "Redesigned the chess.com interface with a pie menu, based on scientific studies showing faster navigation.",
       "Added a system to watch a live chess game while playing your own, using a split window display.",
@@ -311,6 +413,273 @@ const projectsData = [
   {
     id: 6,
     title: "Relais Food Keychain",
+    template: "editorialCaseStudy",
+    caseStudy: {
+      category: "Interaction and product design",
+      subtitle: "Share food. Build a community.",
+      duration: "2025",
+      role: "UX, interaction and product design",
+      team: "Yousra Bourguiba, Gleda Uisetiawan, Matthias Pommeray, Maryatou Kante, Shubham Bhatt",
+      coverImage: foodCharmKeychain,
+      coverCaption: "Food Charm — connected keychain concept.",
+      overviewTitle: "A small object with a bigger purpose.",
+      description:
+        "Food Charm is a connected keychain designed to make surplus food easier to discover and collect. It connects people, food relay points and timely notifications in one simple experience.",
+      objectives: [
+        "Make nearby food-sharing opportunities easier to discover.",
+        "Reduce uncertainty around availability and pickup.",
+        "Create a welcoming experience for both donors and recipients."
+      ],
+      problem:
+        "Food waste and food insecurity coexist, but sharing surplus food is often difficult to coordinate.",
+      problemContext:
+        "Students may struggle to afford groceries while edible food is discarded. Informal messages and uncertain pickup times make existing sharing practices unreliable.",
+      problemPoints: [
+        "Lack of cheap food alternatives for students and people with limited budgets.",
+        "Food often expires unnoticed before anyone can collect it.",
+        "People can feel embarrassed when asking for food.",
+        "Distance, timing and unclear handoffs make informal sharing hard to rely on."
+      ],
+      research: {
+        introduction:
+          "The project explored how students discover affordable food, how surplus becomes available and which barriers make food sharing feel inconvenient or uncomfortable.",
+        method: "Users interviews and surveys, User research, personas and scenario mapping",
+        participants: "Students and people involved in food sharing",
+        format: "Academic group project",
+        goal: "Make food redistribution feel simple, timely and dignified."
+      },
+      workshop: {
+        title: "From lived experience to shared opportunities.",
+        image: foodCharmWorkshop,
+        imageCaption: "Workshop exploration and paper keychain prototype.",
+        description:
+          "The workshop brought the team together around concrete food-sharing situations. We mapped moments of surplus and need, compared our assumptions, and translated recurring tensions into design opportunities for the service.",
+        activities: [
+          "Map food journeys from surplus to collection.",
+          "Identify barriers for donors and recipients.",
+          "Compare individual experiences and assumptions.",
+          "Turn recurring needs into opportunity statements."
+        ]
+      },
+      interviews: [
+        {
+          profile: "01 / Unreliable availability",
+          quote: "It’s like my own hack.",
+          insight: "Theme: unreliable availability."
+        },
+        {
+          profile: "02 / Unsold food",
+          quote: "Sometimes I cook too much nasi kuning or too many cakes…",
+          insight: "Theme: unsold food."
+        },
+        {
+          profile: "03 / Time-sensitive sharing",
+          quote: "By the time they reply the food is no longer good.",
+          insight: "Theme: time-sensitive sharing."
+        }
+      ],
+      personasIntroduction:
+        "Three personas helped the team represent different relationships with food access, food sharing and community support.",
+      personas: [
+        {
+          name: "Brooke",
+          role: "The mindful sharer",
+          summary:
+            "Brooke often has food to give away but needs a simple and reliable way to share it before it goes to waste.",
+          goals: ["Share surplus food easily", "Help people nearby"],
+          painPoints: ["Unclear pickup coordination", "Limited time"],
+          context:
+            "Needs clear information about where and when food can be dropped off.",
+          image: foodCharmBrooke
+        },
+        {
+          name: "Luc",
+          role: "The student on a budget",
+          summary:
+            "Luc is looking for affordable food nearby and wants to know what is available before making a trip.",
+          goals: ["Find accessible food", "Save money"],
+          painPoints: ["Uncertain availability", "Embarrassment when asking for help"],
+          context:
+            "Needs a discreet and welcoming way to discover available food.",
+          image: foodCharmLuc
+        },
+        {
+          name: "Richie",
+          role: "The community connector",
+          summary:
+            "Richie helps coordinate local food-sharing initiatives and wants the system to remain easy to understand for everyone.",
+          goals: ["Keep exchanges organized", "Strengthen the community"],
+          painPoints: ["Too many disconnected messages", "Difficult follow-up"],
+          context:
+            "Needs a shared overview of offers, locations and collection status.",
+          image: foodCharmRichie
+        }
+      ],
+      scenarioOne: {
+        title: "The initial smart-fridge concept",
+        introduction:
+          "The first storyboard places the experience inside a smart fridge: a person notices food that is about to expire, opens its food card and uploads it to share.",
+        steps: [
+          { image: foodCharmScenario1Step1, title: "Notice food at risk", description: "The user checks the smart fridge and sees a warning for food that needs attention." },
+          { image: foodCharmScenario1Step2, title: "Open the food card", description: "The user opens the alert to see the expiring spinach and the available actions." },
+          { image: foodCharmScenario1Step3, title: "Upload it to share", description: "The user adds the food to the sharing flow so someone else can collect it." }
+        ]
+      },
+      redesign: {
+        title: "From smart fridge to portable keychain",
+        description:
+          "The initial Food Charm concept explored a smart fridge as a way to redistribute surplus food. Walkthrough reviews helped us identify opportunities to improve the user experience, from reservation flexibility to food validation and collection. We then redesigned the system around a portable keychain and community lockers, aiming to simplify the technology and reduce the need for costly smart infrastructure.",
+        before: { image: foodCharmScenario1Step2, caption: "Before — a fixed smart-fridge interface." },
+        after: { image: foodCharmKeychainModel, caption: "After — a portable Food Charm object." }
+      },
+      walkthroughImprovements: [
+        { title: "Flexible reservations", description: "Users can cancel a reservation at any time.", cue: "↩" },
+        { title: "More opportunities at one pickup point", description: "Users keep receiving notifications and can reserve more food when they are already at the same collection point.", cue: "+" },
+        { title: "Secure collection", description: "QR-code validation confirms access to the required locker.", cue: "QR" },
+        { title: "Clear information before collection", description: "The collection address and food item appear together, so users can judge the location and the food before travelling.", cue: "⌖" },
+        { title: "More time flexibility", description: "Users can extend the collection time limit by 10 minutes.", cue: "+10" }
+      ],
+      technologyRationale: {
+        title: "Simplifying the technology",
+        description:
+          "The redesign aimed to simplify the system in terms of technology and infrastructure requirements. Instead of relying on smart refrigerators, the portable keychain becomes the main interaction device and community lockers become collection points. This is a design intention, not a proven cost saving.",
+        initial: [
+          "Relies on smart refrigerator infrastructure.",
+          "Uses a fixed physical location for the food-sharing interaction.",
+          "Requires a more complex physical system."
+        ],
+        redesigned: [
+          "The keychain becomes the main interaction device.",
+          "Users can post food they no longer need.",
+          "The system connects people with surplus food, people who need it and composting organizations.",
+          "Food donation and collection take place through community lockers."
+        ]
+      },
+      keychainFeatures: [
+        { title: "Post surplus food", description: "Users take pictures to create a food post.", image: foodCharmScenario2Step5 },
+        { title: "Find a nearby collection point", description: "A map shows the closest pickup point.", image: foodCharmScenario2Step2 },
+        { title: "Receive a relevant notification", description: "The notification brings together the collection address, food image, category and label, and quantity available.", image: foodCharmScenario2Step3 },
+        { title: "Access the locker", description: "The system displays the locker number and generates a QR code to access the required locker.", image: foodCharmScenario2Step4 }
+      ],
+      lockerNetwork: {
+        locations: ["Universities", "Student accommodation", "Supermarkets", "Restaurants"],
+        standard: "Standard community lockers for food intended to be collected within a short period.",
+        refrigerated: "Refrigerated lockers may be considered for specific products such as ice cream or yogurt."
+      },
+      comparison: {
+        image: foodCharmDimensions,
+        caption: "Qualitative concept exploration from the original comparison diagram. The source does not define a verified numerical scale.",
+        dimensions: [
+          "System-triggered",
+          "Giver-centric",
+          "Degree of communication",
+          "Urgency of communication",
+          "Simplicity of locating",
+          "Input technicality"
+        ]
+      },
+      scenarioTwo: {
+        title: "The portable keychain",
+        introduction:
+          "The second storyboard makes the exchange portable. The user carries the charm, finds a relay point, and uses the object as a visible signal during the handoff.",
+        steps: [
+          { image: foodCharmScenario2Step1, title: "Carry the charm", description: "The user takes the portable charm with them rather than returning to a fixed appliance." },
+          { image: foodCharmScenario2Step2, title: "Find the relay point", description: "The journey leads the user toward the lockers or designated food-sharing location." },
+          { image: foodCharmScenario2Step3, title: "Arrive at the exchange", description: "The user reaches the place where the food can be collected or deposited." },
+          { image: foodCharmScenario2Step4, title: "Use the charm", description: "The portable object becomes part of the interaction at the relay point." },
+          { image: foodCharmScenario2Step5, title: "Signal the handoff", description: "The storyboard shows the charm being used as a recognizable signal between people." },
+          { image: foodCharmScenario2Step6, title: "Meet another participant", description: "The person carrying the charm encounters the other participant in the sharing flow." },
+          { image: foodCharmScenario2Step7, title: "Make the exchange visible", description: "The object helps make the intended food-sharing moment legible in the environment." },
+          { image: foodCharmScenario2Step8, title: "Complete the sharing moment", description: "The two participants bring the exchange to a close with the portable charms." }
+        ]
+      },
+      process: {
+        title: "From Paper to Prototype",
+        introduction:
+          "Before shaping the final Food Charm concept, we explored how people might personalize the experience, connect through food, and evaluate different ways of sharing surplus food. Two workshop activities helped us explore these questions, before I developed the concept further through a 3D model in Blender.",
+        workshopOne: {
+          title: "Making Food Sharing Personal",
+          description:
+            "Participants customized their own paper keychains by drawing their food preferences, dietary habits, and visual identity on the screen. They then discussed their habits with other participants and considered whether they would be comfortable sharing food with them.",
+          image: foodCharmWorkshop,
+          imageCaption: "Handmade, customizable paper keychains inspired by Tamagotchi devices.",
+          purposes: [
+            "Explore how people express their food preferences.",
+            "Make the keychain concept tangible through a simple, playful artefact.",
+            "Encourage conversations about food habits, similarities, differences, and willingness to share."
+          ]
+        },
+        workshopTwo: {
+          title: "Two Design Questions, Different Perspectives",
+          description:
+            "The second activity invited participants to debate two design alternatives in small groups, then compare their conclusions across mixed teams.",
+          images: [
+            { image: foodCharmWorkshop2, alt: "Food Charm workshop activity sheet about debating design alternatives", caption: "Activity 02 — debate on design alternatives." }
+          ],
+          questions: [
+            "Keychain vs. App — Which interface better supports the food-sharing experience?",
+            "Centralized Pickup Points vs. Peer-to-Peer Exchanges — How should people connect to collect or share surplus food?"
+          ]
+        },
+        contribution: {
+          title: "From a Paper Concept to a 3D Prototype",
+          description:
+            "After exploring the concept through paper-based activities, I developed a 3D model in Blender to give the Food Charm keychain a more tangible form. The model helped communicate the product’s shape, screen, and physical interaction concept.",
+          label: "My contribution · 3D modelling in Blender",
+          image: foodCharmKeychainModel,
+          imageCaption: "Blender workspace showing the Food Charm keychain model. This is a 3D model, not a fully functional physical prototype."
+        },
+        closing:
+          "Together, the workshops explored the social and interaction dimensions of Food Charm, while the 3D model helped communicate the form of the portable keychain."
+      },
+      insights: [
+        {
+          title: "Availability changes quickly",
+          description:
+            "Users need timely information because food offers can disappear within a short window."
+        },
+        {
+          title: "Trust supports participation",
+          description:
+            "Clear information about the food and the pickup point makes sharing feel safer."
+        },
+        {
+          title: "The object should stay simple",
+          description:
+            "A physical signal can make the service more visible without requiring constant phone use."
+        }
+      ],
+      prototype: {
+        introduction:
+          "The team tested the service through paper prototypes, interaction alternatives and a physical keychain concept.",
+        decisions: [
+          "Use a wearable object to surface nearby opportunities.",
+          "Connect notifications to designated food relay points.",
+          "Keep the mobile flow focused on discovery and pickup."
+        ],
+        imageIndices: [9, 10, 11],
+        captions: [
+          "Paper prototype of the service flow.",
+          "Exploration of the connected keychain.",
+          "Product and interaction concept."
+        ]
+      },
+      solution: {
+        title: "A connected food-sharing ritual.",
+        description:
+          "Food Charm combines a tactile keychain with a simple mobile experience. Users can discover nearby offers, check availability and find the right relay point before the food is no longer available.",
+        imageIndices: [0, 12, 13, 14, 15, 16, 17]
+      },
+      reflection: {
+        description:
+          "Food Charm helped us explore how a service can make a sensitive topic feel more ordinary and approachable. Further work would focus on validating the notification system and testing the physical product in real relay locations.",
+        learnings: [
+          "Physical and digital touchpoints should reinforce one another.",
+          "Timely information is central to reducing food waste.",
+          "Good service design can support dignity as well as efficiency."
+        ]
+      }
+    },
     description: [
       "Designed a connected keychain to help students easily find nearby food relay points.",
       "The goal is to fight food waste and make food more accessible for students.",
@@ -378,4 +747,15 @@ const projectsData = [
   }
 ];
 
-export default projectsData;
+export default [
+  projectsData[0],
+  projectsData[1],
+  projectsData[5],
+  projectsData[2],
+  projectsData[3],
+  projectsData[4],
+  projectsData[6],
+  projectsData[7],
+  projectsData[8],
+  projectsData[9]
+];

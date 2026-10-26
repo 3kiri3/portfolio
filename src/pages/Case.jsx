@@ -4,6 +4,9 @@ import projectsData from "../data/projectsData";
 import { useParams, useNavigate } from "react-router-dom";
 import Editorial1 from "./Templates/Editorial1";
 import Editorial2 from "./Templates/Editorial2";
+import EditorialCaseStudy from "./Templates/EditorialCaseStudy";
+import MapAICaseStudy from "./Templates/MapAICaseStudy";
+import FashionCaseStudy from "./Templates/FashionCaseStudy";
 
 export default function Case() {
   const { projectIndex } = useParams();
@@ -32,26 +35,41 @@ export default function Case() {
   const displayNumber = String(
     thumbnailImages.indexOf(mainImage) + 1
   ).padStart(2, "0");
+  const isFashionCaseStudy = template === "fashionCaseStudy";
+  const showThumbnailGallery =
+    template !== "editorialCaseStudy" && !isFashionCaseStudy;
 
   return (
-    <div className="fixed inset-0 flex h-full w-full overflow-hidden bg-white">
+    <div
+      className={`fixed inset-0 flex h-full w-full overflow-hidden ${
+        isFashionCaseStudy ? "bg-white text-black" : "bg-white"
+      }`}
+    >
       <div
         aria-hidden="true"
         className="grid-background pointer-events-none fixed inset-0 z-0"
       />
 
-      <div className="fixed right-0 top-0 z-30 flex h-screen w-[15%] flex-col items-end pb-0 pr-2 pt-15">
+      <div
+        className={`fixed right-0 top-0 z-30 flex h-screen w-[15%] flex-col items-end pb-0 pr-2 pt-15 transition-opacity duration-500 ${
+          isScrolled ? "opacity-40" : "opacity-100"
+        } text-black`}
+      >
         <div className="mb-12 whitespace-nowrap text-right text-3xl font-bold overflow-visible">
           {project.title}
         </div>
-        <div className="w-full h-px bg-black mb-8" />
+        <div
+          className={`mb-8 h-px w-full ${
+            "bg-black"
+          }`}
+        />
         <div className="flex flex-col gap-8">
           {projectsData.map((proj, i) =>
             i !== selected ? (
               <button
                 key={proj.id}
                 onClick={() => navigate(`/case/${i}`)}
-                className="text-base text-right text-black hover:underline transition"
+                className="text-right text-base transition hover:underline"
               >
                 {proj.title}
               </button>
@@ -61,7 +79,11 @@ export default function Case() {
       </div>
 
       {/* Back button */}
-      <div className="fixed left-0 top-0 w-[10%] h-24 flex items-start justify-start z-30 bg-white/80 backdrop-blur">
+      <div
+        className={`fixed left-0 top-0 z-30 flex h-24 w-[10%] items-start justify-start backdrop-blur ${
+          "bg-white/80"
+        }`}
+      >
         <button
           className="m-8 p-2 rounded transition flex items-center hover:scale-110"
           onClick={() => navigate("/")}
@@ -82,7 +104,9 @@ export default function Case() {
 
       {/* Central content */}
       <div
-        className="absolute inset-0 z-10 flex h-full w-full flex-col items-center overflow-y-auto pt-44"
+        className={`absolute inset-0 z-10 flex h-full w-full flex-col items-center overflow-y-auto pt-44 ${
+          "bg-transparent"
+        }`}
         onScroll={(event) => setIsScrolled(event.currentTarget.scrollTop > 20)}
       >
         <div className="pointer-events-auto w-full">
@@ -98,6 +122,12 @@ export default function Case() {
               mainImage={mainImage}
               projectNumber={displayNumber}
             />
+          ) : template === "editorialCaseStudy" ? (
+            <EditorialCaseStudy project={project} />
+          ) : template === "mapAICaseStudy" ? (
+            <MapAICaseStudy project={project} />
+          ) : template === "fashionCaseStudy" ? (
+            <FashionCaseStudy project={project} />
           ) : (
             <div className="ml-[-10%] flex w-[60%] flex-col">
           <div className="flex flex-row items-start justify-between gap-8 mb-8">
@@ -141,33 +171,34 @@ export default function Case() {
         </div>
       </div>
 
-      {/* Bottom image previews */}
-      <div
-        className="fixed left-0 bottom-0 w-full flex items-center justify-center z-40"
-        style={{ height: "15vh" }}
-      >
+      {showThumbnailGallery && (
         <div
-          className={`w-full h-full flex flex-row items-center justify-center gap-4 px-8 overflow-x-auto transition-opacity duration-300 ${
-            isScrolled ? "opacity-20 hover:opacity-100" : "opacity-100"
-          }`}
+          className="fixed bottom-0 left-0 z-40 flex w-full items-center justify-center"
+          style={{ height: "15vh" }}
         >
-          {thumbnailImages.map((img, idx) => (
-            <button
-              key={img}
-              onClick={() => setMainImage(img)}
-              className={`h-[70%] aspect-video overflow-hidden border-2 transition-all
-                ${mainImage === img ? "border-black scale-105" : "border-transparent opacity-50 hover:opacity-100"} 
-                hover:border-black`}
-            >
-              <img
-                src={img}
-                alt={`Preview ${idx + 1}`}
-                className="h-full w-full object-cover"
-              />
-            </button>
-          ))}
+          <div
+            className={`flex h-full w-full flex-row items-center justify-center gap-4 overflow-x-auto px-8 transition-opacity duration-300 ${
+              isScrolled ? "opacity-20 hover:opacity-100" : "opacity-100"
+            }`}
+          >
+            {thumbnailImages.map((img, idx) => (
+              <button
+                key={img}
+                onClick={() => setMainImage(img)}
+                className={`h-[70%] aspect-video overflow-hidden border-2 transition-all
+                  ${mainImage === img ? "scale-105 border-black" : "border-transparent opacity-50 hover:opacity-100"}
+                  hover:border-black`}
+              >
+                <img
+                  src={img}
+                  alt={`Preview ${idx + 1}`}
+                  className="h-full w-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
